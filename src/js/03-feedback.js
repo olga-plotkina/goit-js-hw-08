@@ -9,7 +9,7 @@ if (savedMessage) {
     formRef.elements.message.value = savedMessage.message;
 }
 
-formData = {};
+const formData = {};
 
 const onFormInput = (event) => {
     formData[event.target.name] = event.target.value;  
