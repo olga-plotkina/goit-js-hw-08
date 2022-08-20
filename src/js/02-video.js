@@ -10,14 +10,6 @@ const onPlay = ({ seconds }) => {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player
-  .setCurrentTime(JSON.parse(localStorage.getItem('videoplayer-current-time')))
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
+player.setCurrentTime(
+  JSON.parse(localStorage.getItem('videoplayer-current-time'))
+);
