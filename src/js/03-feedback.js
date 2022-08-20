@@ -3,7 +3,7 @@ import throttle from 'lodash.throttle';
 const formRef = document.querySelector('.feedback-form');
 
 const savedMessage = JSON.parse(localStorage.getItem('feedback-form-state'));
-let formData = savedMessage ?? {};
+const formData = savedMessage ?? {};
 
 if (savedMessage) {
   formRef.elements.email.value = savedMessage.email ? savedMessage.email : '';
