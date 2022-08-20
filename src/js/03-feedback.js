@@ -21,10 +21,17 @@ formRef.addEventListener('input', throttle(onFormInput, 500));
 
 const onFormSubmit = event => {
   event.preventDefault();
-  const { email, message } = event.currentTarget.elements;
+  const formElements = event.currentTarget.elements;
 
-  formData.email = email.value;
-  formData.message = message.value;
+  for (let i = 0; i < formElements.length; i++) {
+    if (formElements[i].tagName.toUpperCase() === 'BUTTON') {
+      continue;
+    }
+    if (!formElements[i].value) {
+      alert('Усі поля мають бути заповнені!');
+      return;
+    }
+  }
 
   event.currentTarget.reset();
   localStorage.removeItem('feedback-form-state');
