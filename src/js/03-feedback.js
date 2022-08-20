@@ -6,8 +6,10 @@ const savedMessage = JSON.parse(localStorage.getItem('feedback-form-state'));
 let formData = {};
 
 if (savedMessage) {
-  formRef.elements.email.value = savedMessage?.email;
-  formRef.elements.message.value = savedMessage?.message;
+  formRef.elements.email.value = savedMessage.email ? savedMessage.email : '';
+  formRef.elements.message.value = savedMessage.message
+    ? savedMessage.email
+    : '';
 }
 
 const onFormInput = event => {
